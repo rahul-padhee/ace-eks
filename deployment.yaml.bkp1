@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: ace
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ace
+  template:
+    metadata:
+      labels:
+        app: ace
+    spec:
+      containers:
+      - name: ace1
+        image: ace
+        ports:
+        - containerPort: 22
